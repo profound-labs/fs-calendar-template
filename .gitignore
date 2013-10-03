@@ -1,0 +1,16 @@
+address-page.pdf
+frontmatter-page.pdf
+planner-page.pdf
+thumbs-page.pdf
+wall_main.pdf
+desk_main.pdf
+planner_*.pdf
+*.swp
+*.aux
+*.log
+*.toc
+*.out
+TODO
+TODO.md
+TODO.org
+auto/
