@@ -1,0 +1,8 @@
+
+Wall Calendar Class
+
+(c) Gambhiro Bhikkhu, 2013
+gambhiro@ratanagiri.org.uk
+
+LPPL LaTeX Public Project License
+

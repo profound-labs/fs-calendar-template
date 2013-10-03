@@ -1,0 +1,113 @@
+\documentclass[
+  11pt,
+  paperheight=210mm,
+  paperwidth=148mm,
+  photoYoffset=10mm,
+  photoHeight=92mm,
+  calendarHeight=60mm,
+  calendarY=10mm,
+  calendarNotesY=8mm,
+  calendarNotesXoffset=-6mm,
+  year=2014,
+  altYear=2557,
+  hmargin=17mm,
+  language=french,
+  calendarStyle=rigel,
+  mainFontFamily=Shaker Pali Regular,
+  italicFontFamily=Shaker Pali Italic,
+  boldFontFamily=Shaker 2 Bold,
+  %showtrims,
+  %varnishmask,
+]{wallcalendar}
+
+\makeatletter
+
+%\graphicspath{{./src-images/300dpi/}}
+%\graphicspath{{./src-images/72dpi/}}
+\graphicspath{{./src-images/30dpi/}}
+
+\usepackage{calendar-layout}
+
+\renewcommand\monthMarkPositions{%
+\setlength\markNormalAbove{-3.4mm}%
+\setlength\markNormalRight{1mm}%
+\setlength\markMoonAbove{-2.6mm}%
+\setlength\markMoonRight{1mm}%
+\setlength\markKiteAbove{-0.8mm}%
+\setlength\markKiteRight{3mm}%
+}
+
+% set center for PDF page insertions
+% TODO: use pgf page.center?
+
+\newlength\centerX
+\newlength\centerY
+\setlength\centerX{0.5\paperwidth-0.6\paperwidth}
+\setlength\centerY{0.5\paperheight-0.6\paperheight}
+
+\makeatother
+
+\begin{document}
+
+% === Cover ===========================================================
+
+\mbox{}
+
+\coverPage
+
+% === Frontmatter =====================================================
+
+\newpage
+\mbox{}
+
+\AddToShipoutPictureFG*{\put(\LenToUnit{\centerX},\LenToUnit{\centerY}){%
+\begin{minipage}[b][1.2\paperheight][c]{1.2\paperwidth}
+\centering
+\includegraphics[keepaspectratio, width=\paperwidth]{frontmatter-page.pdf}
+\end{minipage}
+}}
+
+% === Months ==========================================================
+
+\newpage
+
+\monthMarkPositions
+\TwelveMonths
+
+% === Year Planner ====================================================
+
+\newpage
+\mbox{}
+
+\AddToShipoutPictureFG*{\put(\LenToUnit{\centerX},\LenToUnit{\centerY}){%
+\begin{minipage}[b][1.2\paperheight][c]{1.2\paperwidth}
+\centering
+\includegraphics[keepaspectratio, width=\paperwidth]{planner-page.pdf}
+\end{minipage}
+}}
+
+% === Thumbnails ======================================================
+
+\newpage
+\mbox{}
+
+\AddToShipoutPictureFG*{\put(\LenToUnit{\centerX},\LenToUnit{\centerY}){%
+\begin{minipage}[b][1.2\paperheight][c]{1.2\paperwidth}
+\centering
+\includegraphics[keepaspectratio, width=\paperwidth]{thumbs-page.pdf}
+\end{minipage}
+}}
+
+% === Addresses =======================================================
+
+\newpage
+\mbox{}
+
+\AddToShipoutPictureFG*{\put(\LenToUnit{\centerX},\LenToUnit{\centerY}){%
+\begin{minipage}[b][1.2\paperheight][c]{1.2\paperwidth}
+\centering
+\includegraphics[keepaspectratio, width=\paperwidth]{address-page.pdf}%
+\end{minipage}
+}}
+
+\end{document}

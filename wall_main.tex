@@ -1,0 +1,84 @@
+\documentclass[
+  11pt,
+  paperheight=250.5mm,
+  paperwidth=170.5mm,
+  photoYoffset=17mm,
+  photoHeight=100mm,
+  calendarHeight=80mm,
+  calendarY=25mm,
+  year=2014,
+  altYear=2557,
+  hmargin=17mm,
+  language=english,
+  calendarStyle=betelgeuse,
+  mainFontFamily=Shaker Pali Regular,
+  italicFontFamily=Shaker Pali Italic,
+  boldFontFamily=Shaker 2 Bold,
+  %showtrims,
+  %varnishmask,
+]{wallcalendar}
+
+\makeatletter
+
+%\graphicspath{{./src-images/300dpi/}}
+%\graphicspath{{./src-images/72dpi/}}
+\graphicspath{{./src-images/30dpi/}}
+
+\usepackage{calendar-layout}
+
+\makeatother
+
+\begin{document}
+
+% === Cover ===========================================================
+
+\mbox{}
+
+\coverPage
+
+% === Frontmatter =====================================================
+
+\newpage
+
+\ifvarnishmask
+\mbox{}
+\else
+\FrontMatterText
+\fi
+
+% === Months ==========================================================
+
+\newpage
+
+\monthMarkPositions
+\TwelveMonths
+
+% === Year Planner ====================================================
+
+\newpage
+
+\ifvarnishmask
+\mbox{}
+\else
+\input{./calendar-marks-planner.tex}
+\plannerMarkPositions
+\YearPlanner
+\fi
+
+% === Thumbnails ======================================================
+
+\newpage
+
+\ThumbsPage
+
+% === Addresses =======================================================
+
+\newpage
+
+\ifvarnishmask
+\mbox{}
+\else
+\input{./addresses.tex}
+\fi
+
+\end{document}

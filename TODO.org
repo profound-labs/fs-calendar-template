@@ -1,0 +1,30 @@
+
+* FIXME
+
+  - renewing \quoteFont doesn't take effect, but renewing \ACALquoteFmt
+  works
+
+* TODO
+
+line width approximately as max in calendar, encourage ppl adding linebreaks
+
+The text didn't include any linebreaks for the quotes, so I added them. See if they make sense.
+
+Next time, please follow the source text more accurately. Remember that I don't know your language -- if you add or omit words or accents in the text that the source didn't contain, I don't necessarily notice that, and will copy the mistake.
+
+Colors and bold text: don't abuse it. If it helps you while you collaborate, that is good, but it really doesn't help me.
+
+Non-breaking whitespace: don't use it in the document. Turn on visible whitespace, that way you can avoid accidentally typing it.
+
+Pali accents: don't omit them.
+
+Translate the text as it is in the document, not as you see it in the calendar. For example:
+
+"Sāmaṇera Kovido receiving his alms-bowl during upasampadā, Wat Santacittarama, Italy"
+
+"Iunie, Samanera Kovido primind bolul în timpul upasampada, Wat Sancitarama, Italia"
+
+Here, the month is added, the Pali accents are missing.
+
+I didn't include the footnote in September. This is not a book.
+
