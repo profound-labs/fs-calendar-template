@@ -1,5 +1,33 @@
 \ProvidesPackage{calendar-layout}
 
+% Define Moondays
+
+\renewcommand\ifDateNewMoon{%
+  \ifdate{
+    equals=2015-01-20, equals=2015-02-18, equals=2015-03-20, equals=2015-04-18, equals=2015-05-18, equals=2015-06-16, equals=2015-07-16, equals=2015-08-14, equals=2015-09-13, equals=2015-10-13, equals=2015-11-11, equals=2015-12-11
+  }{\putMoon{1}}{};%
+}
+
+\renewcommand\ifDateWaxingMoon{%
+  \ifdate{
+    equals=2015-01-27, equals=2015-02-25, equals=2015-03-27, equals=2015-04-25, equals=2015-05-25, equals=2015-06-24, equals=2015-07-24, equals=2015-08-22, equals=2015-09-21, equals=2015-10-20, equals=2015-11-19, equals=2015-12-18
+  }{\putMoon{2}}{};%
+}
+
+\renewcommand\ifDateFullMoon{%
+  \ifdate{
+    equals=2015-02-03, equals=2015-03-05, equals=2015-04-04, equals=2015-05-04, equals=2015-06-02, equals=2015-07-02, equals=2015-07-31, equals=2015-08-29, equals=2015-09-28, equals=2015-10-27, equals=2015-11-25, equals=2015-12-25
+  }{\putMoon{3}}{};%
+}
+
+\renewcommand\ifDateWaningMoon{%
+  \ifdate{
+    equals=2015-02-12, equals=2015-03-13, equals=2015-04-12, equals=2015-05-11, equals=2015-06-09, equals=2015-07-08, equals=2015-08-07, equals=2015-09-05, equals=2015-10-04, equals=2015-11-03, equals=2015-12-03
+  }{\putMoon{4}}{};%
+}
+
+\graphicspath{{\photosDir},{./src-images/thumbs/},{./src-images/cutouts/},{./src-images/jpg/}}
+
 \newcommand\PreLayoutSettings{}
 \newcommand\PostLayoutSettings{}
 
@@ -11,9 +39,14 @@
 
 \PreLayoutSettings
 
-\newfontfamily\quoteFont[Renderer = Basic]{Shaker 2 Light}
+\newfontfamily\quoteFont[
+  Renderer = Basic,
+  ItalicFont = Shaker 2 Light Italic,
+]{Shaker 2 Light}
 
-\newfontfamily\ShakerLight{Shaker 2 Light}
+\newfontfamily\ShakerLight[
+  ItalicFont = Shaker 2 Light Italic,
+]{Shaker 2 Light}
 
 \renewcommand\monthFont{\ShakerLight}
 \renewcommand\yearFont{\ShakerLight}
@@ -75,11 +108,11 @@
 \setlength{\parskip}{0pt}
 \setlength{\parindent}{0pt}
 \centering
-\ifvarnishmask
-\includegraphics[keepaspectratio, width=\coverWidth]{./src-images/cover-buddha_mask.png}
-\else
-\includegraphics[keepaspectratio, width=\coverWidth]{./src-images/cover-buddha.png}
-\fi
+%\ifvarnishmask
+%\includegraphics[keepaspectratio, width=\coverWidth]{./src-images/cover-buddha_mask.png}
+%\else
+%\includegraphics[keepaspectratio, width=\coverWidth]{./src-images/cover-buddha.png}
+%\fi
 
 \ifvarnishmask\relax
 \else

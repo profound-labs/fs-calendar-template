@@ -1,10 +1,6 @@
 LATEX=lualatex
 LATEX_OPTS=-interaction=nonstopmode -halt-on-error
 
-DPI=30
-#DPI=72
-#DPI=300
-
 none:
 	echo "desk or wall?"
 
@@ -12,10 +8,10 @@ wall:
 	$(LATEX) $(LATEX_OPTS) wall_main.tex
 
 wall-cutouts:
-	pdftk wall_main.pdf cat 2 output src-images/$(DPI)dpi/frontmatter-page.pdf
-	pdftk wall_main.pdf cat 15 output src-images/$(DPI)dpi/planner-page.pdf
-	pdftk wall_main.pdf cat 16 output src-images/$(DPI)dpi/thumbs-page.pdf
-	pdftk wall_main.pdf cat 17 output src-images/$(DPI)dpi/address-page.pdf
+	pdftk wall_main.pdf cat 2 output src-images/cutouts/frontmatter-page.pdf
+	pdftk wall_main.pdf cat 15 output src-images/cutouts/planner-page.pdf
+	pdftk wall_main.pdf cat 16 output src-images/cutouts/thumbs-page.pdf
+	pdftk wall_main.pdf cat 17 output src-images/cutouts/address-page.pdf
 
 desk:
 	$(LATEX) $(LATEX_OPTS) desk_main.tex
