@@ -1,3 +1,6 @@
+pdf-keep/preview/
+pdf-keep/proofing/
+pdf-keep/preflight/
 address-page.pdf
 frontmatter-page.pdf
 planner-page.pdf
@@ -14,3 +17,4 @@ TODO
 TODO.md
 TODO.org
 auto/
+temp/
