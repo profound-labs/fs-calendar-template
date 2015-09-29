@@ -8,10 +8,8 @@ wall:
 	$(LATEX) $(LATEX_OPTS) wall_main.tex
 
 wall-cutouts:
-	pdftk wall_main.pdf cat 2 output src-images/cutouts/frontmatter-page.pdf
 	pdftk wall_main.pdf cat 15 output src-images/cutouts/planner-page.pdf
 	pdftk wall_main.pdf cat 16 output src-images/cutouts/thumbs-page.pdf
-	pdftk wall_main.pdf cat 17 output src-images/cutouts/address-page.pdf
 
 desk:
 	$(LATEX) $(LATEX_OPTS) desk_main.tex
@@ -22,10 +20,8 @@ wall-and-desk:
 	@echo "Wall twice... "
 	$(LATEX) $(LATEX_OPTS) wall_main.tex > out.log 2>&1
 	@echo "Making cutouts... "
-	pdftk wall_main.pdf cat 2 output src-images/cutouts/frontmatter-page.pdf > out.log 2>&1
 	pdftk wall_main.pdf cat 15 output src-images/cutouts/planner-page.pdf > out.log 2>&1
 	pdftk wall_main.pdf cat 16 output src-images/cutouts/thumbs-page.pdf > out.log 2>&1
-	pdftk wall_main.pdf cat 17 output src-images/cutouts/address-page.pdf > out.log 2>&1
 	@echo "Desk once... "
 	$(LATEX) $(LATEX_OPTS) desk_main.tex > out.log 2>&1
 	@echo "Desk twice... "
