@@ -24,7 +24,7 @@
 
 {\centering%
 \monthFont\monthlabelsize\color{gold}%
-\textbf{Forest Sangha Calendar 2014 - 2557}
+\textbf{Forest Sangha Calendar 2016 - 2559}
 \par}
 
 \vspace*{3mm}
@@ -32,22 +32,23 @@
 \raggedright
 
 \begin{tikzpicture}
-\calendar (cal) [dates=2014-01-01 to 2014-12-31, planner] \moondays;
+\calendar (cal) [dates=2016-01-01 to 2016-12-31, planner] \moondays;
 
-\draw[textbody] node [above right=-3mm and -1.5mm of cal-2014-01-16.north east] {\datefnsize 1};
-\draw[textbody] node [above right=-3mm and -1.5mm of cal-2014-02-14.north east] {\datefnsize 2};
-\draw[textbody] node [above right=-3mm and -1.5mm of cal-2014-05-13.north east] {\datefnsize 3};
-\draw[textbody] node [above right=-3mm and -1.5mm of cal-2014-06-17.north east] {\datefnsize 4};
-\draw[textbody] node [above right=-3mm and -1.5mm of cal-2014-07-11.north east] {\datefnsize 5};
-\draw[textbody] node [above right=-2mm and -1.5mm of cal-2014-07-12.north east] {\datefnsize 6};
-\draw[textbody] node [above right=-3mm and -1.5mm of cal-2014-10-08.north east] {\datefnsize 7};
+\draw[textbody] node [above right=-3mm and -1.5mm of cal-\theCalendarYear-01-16.north east] {\datefnsize 1};% Ajahn Chah Memorial Day
+\draw[textbody] node [above right=-3mm and -1.5mm of cal-\dateMaghaPuja.north east] {\datefnsize 2};% Māgha Pūjā
+\draw[textbody] node [above right=-3mm and -1.5mm of cal-\dateVesakhaPuja.north east] {\datefnsize 3};% Vesākha Pūjā
+\draw[textbody] node [above right=-3mm and -1.5mm of cal-\theCalendarYear-06-17.north east] {\datefnsize 4};% Ajahn Chah's Birthday
+% Adhikavara year
+\draw[textbody] node [above right=-3mm and -1.5mm of cal-\dateAsalhaPuja.north east] {\datefnsize 5};% Āsāḷhā Pūjā
+\draw[textbody] node [above right=-2mm and -1.5mm of cal-\dateVassaFirstDay.north east] {\datefnsize 6};% First day of Vassa
+\draw[textbody] node [above right=-3mm and -1.5mm of cal-\datePavarana.north east] {\datefnsize 7};% Pavāraṇā
+\draw[textbody] node [above right=-3mm and -1.5mm of cal-\dateVassaLastDay.north east] {\datefnsize 8};% Last Day of Vassa
 
 % Kathina dates:
-% TODO: 8,9,10 out of alignment
-\draw[textbody] node [above right=-3mm and -1.5mm of cal-2014-10-12.north east] {\datefnsize 8,9,10};
-\draw[textbody] node [above right=-3mm and -1.5mm of cal-2014-10-19.north east] {\datefnsize 11};
-\draw[textbody] node [above right=-3mm and -1.5mm of cal-2014-10-26.north east] {\datefnsize 12};
-\draw[textbody] node [above right=-3mm and -1.5mm of cal-2014-11-02.north east] {\datefnsize 13};
+\draw[textbody] node [above right=-3mm and -1.5mm of cal-\theCalendarYear-10-12.north east] {\datefnsize 9,10,11};
+\draw[textbody] node [above right=-3mm and -1.5mm of cal-\theCalendarYear-10-19.north east] {\datefnsize 12};
+\draw[textbody] node [above right=-3mm and -1.5mm of cal-\theCalendarYear-10-26.north east] {\datefnsize 13};
+\draw[textbody] node [above right=-3mm and -1.5mm of cal-\theCalendarYear-11-02.north east] {\datefnsize 14};
 
 \astromoondays;
 \end{tikzpicture}
@@ -58,28 +59,29 @@
 
 \parbox[t][16mm][t]{5cm}{\raggedright\bottomlabelsize
 \s{1} Jan 16: \textit{Ajahn Chah Memorial Day}\linebreak
-\s{2} Feb 14: \textit{Māgha Pūjā}\linebreak
-\s{3} May 13: \textit{Vesākha Pūjā}\linebreak
+\s{2} Feb 22: \textit{Māgha Pūjā}\linebreak
+\s{3} May 20: \textit{Vesākha Pūjā}\linebreak
 \s{4} Jun 17: \textit{Ajahn Chah's Birthday}
 } &
 
 \parbox[t][16mm][t]{5cm}{\raggedright\bottomlabelsize
-\s{5} July 11: \textit{Āsāḷhā Pūjā}\linebreak
-\s{6} July 12: \textit{Vassa begins}\linebreak
-\s{7} Oct 8: \textit{Pavāraṇā}
+\s{5} July 19: \textit{Āsāḷhā Pūjā}\linebreak
+\s{6} July 20: \textit{First Day of Vassa}\linebreak
+\s{7} Oct 16: \textit{Pavāraṇā}
+\s{8} Oct 16: \textit{Last Day of Vassa}
 } &
 
 \parbox[t][16mm][t]{5cm}{\raggedright\bottomlabelsize
 Robe offering ceremonies:\linebreak
-\s{8} Oct 12: \textit{Dhammapala}\linebreak
-\s{9} Oct 12: \textit{Hartridge}\linebreak
-\s{10} Oct 12: \textit{Santacittarama}
+\s{9} Oct 12: \textit{Dhammapala}\linebreak
+\s{10} Oct 12: \textit{Hartridge}\linebreak
+\s{11} Oct 12: \textit{Santacittarama}
 } &
 
 \parbox[t][16mm][t]{5cm}{\raggedright\bottomlabelsize
-\s{11} Oct 19: \textit{Aruna Ratanagiri}\linebreak
-\s{12} Oct 26: \textit{Cittaviveka}\linebreak
-\s{13} Nov 2: \textit{Amaravati}
+\s{12} Oct 19: \textit{Aruna Ratanagiri}\linebreak
+\s{13} Oct 26: \textit{Cittaviveka}\linebreak
+\s{14} Nov 2: \textit{Amaravati}
 } \\
 
 \end{tabular}

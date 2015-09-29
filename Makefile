@@ -32,6 +32,12 @@ wall-and-desk:
 	$(LATEX) $(LATEX_OPTS) desk_main.tex > out.log 2>&1
 	@echo "OK, see wall_main.pdf and desk_main.pdf"
 
+planner-insert-wall:
+	$(LATEX) $(LATEX_OPTS) planner_main_insert_wall.tex
+
+planner-insert-desk:
+	$(LATEX) $(LATEX_OPTS) planner_main_insert_desk.tex
+
 planner-a4:
 	$(LATEX) $(LATEX_OPTS) planner_main_a4.tex
 

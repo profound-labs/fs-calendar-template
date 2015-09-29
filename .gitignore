@@ -1,6 +1,4 @@
-pdf-keep/preview/
-pdf-keep/proofing/
-pdf-keep/wet-proof/
+pdf-keep/
 address-page.pdf
 frontmatter-page.pdf
 planner-page.pdf
@@ -8,6 +6,7 @@ thumbs-page.pdf
 wall_main.pdf
 desk_main.pdf
 planner_*.pdf
+.*#
 *.swp
 *.aux
 *.log

@@ -1,4 +1,7 @@
 \documentclass[
+  language=english,
+  year=2016,
+  altYear=2559,
   11pt,
   paperheight=210mm,
   paperwidth=148mm,
@@ -8,10 +11,7 @@
   calendarY=10mm,
   calendarNotesY=8mm,
   calendarNotesXoffset=-6mm,
-  year=2014,
-  altYear=2557,
   hmargin=17mm,
-  language=french,
   calendarStyle=rigel,
   mainFontFamily=Shaker Pali Regular,
   italicFontFamily=Shaker Pali Italic,
@@ -22,9 +22,11 @@
 
 \makeatletter
 
-%\graphicspath{{./src-images/300dpi/}}
-%\graphicspath{{./src-images/92dpi/}}
-\graphicspath{{./src-images/30dpi/}}
+%\newcommand\photosDir{./src-images/300dpi/}
+%\newcommand\thumbsDir{./src-images/thumbs-300dpi/}
+
+\newcommand\photosDir{./src-images/92dpi/}
+\newcommand\thumbsDir{./src-images/thumbs-360px/}
 
 \usepackage{calendar-layout}
 
@@ -35,6 +37,15 @@
 \setlength\markMoonRight{1mm}%
 \setlength\markKiteAbove{-0.8mm}%
 \setlength\markKiteRight{3mm}%
+}
+
+\newcommand*\addressesTitleSize{\@setfontsize\addressesSize{9}{12}}
+\renewcommand*\addressesSize{\@setfontsize\addressesSize{8}{10}}
+
+\renewcommand\frontMatterFmt{%
+\vspace*{-2\baselineskip}
+\fontsize{8}{11}\selectfont%
+\setlength{\parskip}{0.7\baselineskip}%
 }
 
 % set center for PDF page insertions
@@ -53,19 +64,17 @@
 
 \mbox{}
 
-\coverPage
+\coverPageDesk
 
 % === Frontmatter =====================================================
 
 \newpage
-\mbox{}
 
-\AddToShipoutPictureFG*{\put(\LenToUnit{\centerX},\LenToUnit{\centerY}){%
-\begin{minipage}[b][1.2\paperheight][c]{1.2\paperwidth}
-\centering
-\includegraphics[keepaspectratio, width=\paperwidth]{frontmatter-page.pdf}
-\end{minipage}
-}}
+\ifvarnishmask
+\mbox{}
+\else
+\FrontMatterText
+\fi
 
 % === Months ==========================================================
 
@@ -101,13 +110,11 @@
 % === Addresses =======================================================
 
 \newpage
-\mbox{}
 
-\AddToShipoutPictureFG*{\put(\LenToUnit{\centerX},\LenToUnit{\centerY}){%
-\begin{minipage}[b][1.2\paperheight][c]{1.2\paperwidth}
-\centering
-\includegraphics[keepaspectratio, width=\paperwidth]{address-page.pdf}%
-\end{minipage}
-}}
+\ifvarnishmask
+\mbox{}
+\else
+\input{./desk_addresses.tex}
+\fi
 
 \end{document}

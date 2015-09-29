@@ -2,22 +2,21 @@
 
 % Define Moondays
 
-% TODO: Replace with Thai Moons! These are astronomical dates.
 \renewcommand\ifDateNewMoon{%
   \ifdate{
-    equals=2016-01-10,
-    equals=2016-02-08,
-    equals=2016-03-09,
-    equals=2016-04-07,
-    equals=2016-05-06,
-    equals=2016-06-05,
+    equals=2016-01-08,
+    equals=2016-02-07,
+    equals=2016-03-07,
+    equals=2016-04-06,
+    equals=2016-05-05,
+    equals=2016-06-04,
     equals=2016-07-04,
-    equals=2016-08-02,
+    equals=2016-08-03,
     equals=2016-09-01,
     equals=2016-10-01,
     equals=2016-10-30,
     equals=2016-11-29,
-    equals=2016-12-29
+    equals=2016-12-28,
   }{\putMoon{1}}{};%
 }
 
@@ -30,50 +29,50 @@
     equals=2016-05-13,
     equals=2016-06-12,
     equals=2016-07-12,
-    equals=2016-08-10,
+    equals=2016-08-11,
     equals=2016-09-09,
     equals=2016-10-09,
     equals=2016-11-07,
-    equals=2016-12-07
+    equals=2016-12-07,
   }{\putMoon{2}}{};%
 }
 
 \renewcommand\ifDateFullMoon{%
   \ifdate{
-    equals=2016-01-24,
-    equals=2016-02-22,
-    equals=2016-03-23,
-    equals=2016-04-22,
-    equals=2016-05-21,
-    equals=2016-06-20,
-    equals=2016-07-19,
+    equals=2016-01-23,
+    equals=2016-02-22, % magha
+    equals=2016-03-22,
+    equals=2016-04-21,
+    equals=2016-05-20, % visakha
+    equals=2016-06-19,
+    equals=2016-07-19, % asalha
     equals=2016-08-18,
     equals=2016-09-16,
-    equals=2016-10-16,
+    equals=2016-10-16, % assayuja
     equals=2016-11-14,
-    equals=2016-12-14
+    equals=2016-12-14,
   }{\putMoon{3}}{};%
 }
 
 \renewcommand\ifDateWaningMoon{%
   \ifdate{
     equals=2016-01-02,
-    equals=2016-02-01,
+    equals=2016-01-31,
     equals=2016-03-01,
-    equals=2016-03-31,
-    equals=2016-04-30,
-    equals=2016-05-29,
+    equals=2016-03-30,
+    equals=2016-04-29,
+    equals=2016-05-28,
     equals=2016-06-27,
-    equals=2016-07-26,
-    equals=2016-08-25,
-    equals=2016-09-23,
-    equals=2016-10-22,
-    equals=2016-11-21,
-    equals=2016-12-21
+    equals=2016-07-27,
+    equals=2016-08-26,
+    equals=2016-09-24,
+    equals=2016-10-24,
+    equals=2016-11-22,
+    equals=2016-12-22,
   }{\putMoon{4}}{};%
 }
 
-\graphicspath{{\photosDir},{./src-images/thumbs/},{./src-images/cutouts/},{./src-images/jpg/}}
+\graphicspath{{\photosDir},{\thumbsDir},{./src-images/cutouts/},{./src-images/jpg/}}
 
 \newcommand\PreLayoutSettings{}
 \newcommand\PostLayoutSettings{}
@@ -135,6 +134,7 @@
 \newcommand\textNewZealand{}
 \newcommand\textUnitedStates{}
 \newcommand\textItaly{}
+\newcommand\textCanada{}
 
 \input{./photos.tex}
 \input{./thumbs.tex}
@@ -149,33 +149,53 @@
 \newlength\coverWidth
 \setlength\coverWidth{\paperwidth + 6mm}
 
-\newcommand\coverPage{
+\newcommand\coverPageWall{
 \AddToShipoutPictureFG*{\put(\LenToUnit{-3mm},0){%
-\begin{minipage}[b][\coverHeight][t]{\coverWidth}
+\begin{minipage}[b][\coverHeight][c]{\coverWidth}
 \setlength{\parskip}{0pt}
 \setlength{\parindent}{0pt}
 \centering
-%\ifvarnishmask
-%\includegraphics[keepaspectratio, width=\coverWidth]{./src-images/cover-buddha_mask.png}
-%\else
-%\includegraphics[keepaspectratio, width=\coverWidth]{./src-images/cover-buddha.png}
-%\fi
 
-\ifvarnishmask\relax
+\ifvarnishmask
+\placeholder{\includegraphics[keepaspectratio, width=95mm]{cover.pdf}}
 \else
-\vfill
+\includegraphics[keepaspectratio, width=95mm]{cover.pdf}
+\vspace*{15mm}
+
+\ShakerLight
+\resizebox{95mm}{!}{\color{black!80}\calendarTitleText}\\[3mm]
+\resizebox{95mm}{!}{\color{gold}\theCalendarYear{} {\color{black!50}$\cdot$} \theCalendarAltYear}
+
+\fi
+\end{minipage}
+}}
+}
+
+\newcommand\coverPageDesk{
+\AddToShipoutPictureFG*{\put(\LenToUnit{-3mm},0){%
+\begin{minipage}[b][\coverHeight][c]{\coverWidth}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+\centering
+
+\ifvarnishmask
+\placeholder{\includegraphics[keepaspectratio, width=80mm]{cover.pdf}}
+\else
+\includegraphics[keepaspectratio, width=80mm]{cover.pdf}
+\vspace*{10mm}
 
 \ShakerLight
 \resizebox{80mm}{!}{\color{black!80}\calendarTitleText}\\[3mm]
 \resizebox{80mm}{!}{\color{gold}\theCalendarYear{} {\color{black!50}$\cdot$} \theCalendarAltYear}
 
-\vfill
-
-\vspace{-\baselineskip}
 \fi
-\mbox{}
 \end{minipage}
 }}
+}
+
+\newcommand\frontMatterFmt{%
+\fontsize{9}{14}\selectfont%
+\setlength{\parskip}{0.7\baselineskip}%
 }
 
 \newcommand\monthMarkPositions{%

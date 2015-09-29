@@ -5,15 +5,29 @@
 
 for i in ./jpg/*.jpg; do
   echo -n "$i ... "
-  name=$(echo "`basename $i`" | sed 's/\..*$//;')
+  name=`basename -s .jpg $i`
   ../scripts/img2pdf.py --output pdf/"$name".pdf "$i" && \
   cp pdf/"$name".pdf 300dpi/ && \
   convert "$i" -compress jpeg -quality 90 -resample 92 92dpi/"$name".pdf && \
   convert "$i" -compress jpeg -quality 90 -resample 30 30dpi/"$name".pdf && \
-  convert "$i" -compress zip -adaptive-resize 360x thumbs/"$name"_thumb.pdf
   if [ "$?" != "0" ]; then
     echo "ERROR"
     exit 2
   fi
   echo "OK"
 done
+
+echo "Thumbs from jpg-thumbs-crops..."
+
+for i in ./jpg-thumbs-crops/*.jpg; do
+  echo -n "$i ... "
+  name=`basename -s .jpg $i`
+  ../scripts/img2pdf.py --output thumbs-300dpi/"$name"_thumb.pdf jpg-thumbs-crops/`basename $i` && \
+  convert "$i" -compress zip -adaptive-resize 360x thumbs-360px/"$name"_thumb.pdf
+  if [ "$?" != "0" ]; then
+    echo "ERROR"
+    exit 2
+  fi
+  echo "OK"
+done
+

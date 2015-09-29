@@ -1,0 +1,29 @@
+\documentclass[
+  language=english,
+  year=2016,
+  altYear=2559,
+  11pt,
+  paperheight=240mm,% 250.5mm - 10.5mm
+  paperwidth=170.5mm,
+  photoYoffset=17mm,
+  photoHeight=100mm,
+  calendarHeight=80mm,
+  calendarY=25mm,
+  hmargin=17mm,
+  calendarStyle=betelgeuse,
+  mainFontFamily=Shaker Pali Regular,
+  italicFontFamily=Shaker Pali Italic,
+  boldFontFamily=Shaker 2 Bold,
+]{wallcalendar}
+
+\usepackage{calendar-layout}
+
+\setlength{\plannerNotesSep}{2mm}
+
+\begin{document}
+
+\input{./calendar-marks-planner.tex}
+\plannerMarkPositions
+\YearPlanner
+
+\end{document}

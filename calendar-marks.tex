@@ -1,12 +1,12 @@
 
 \SetCalendarMarks{1}{%
 % Ajahn Chah Memorial Day
-\draw[textbody] node [above right=\markNormalAbove{} and \markNormalRight{} of cal01-\theCalendarYear-01-16.north east] {*};
+\draw[textbody] node [above right=\markMoonAbove{} and \markMoonRight{} of cal01-\theCalendarYear-01-16.north east] {*};
 }
 
 \SetCalendarMarks{2}{%
 % Magha Puja
-\draw[gold] node [above right=\markMoonAbove{} and \markMoonRight{} of cal02-\theCalendarYear-02-03.north east] {*};
+\draw[gold] node [above right=\markMoonAbove{} and \markMoonRight{} of cal02-\dateMaghaPuja.north east] {*};
 }
 
 \SetCalendarMarks{3}{}
@@ -15,7 +15,7 @@
 
 \SetCalendarMarks{5}{%
 % Vesakha Puja
-\draw[gold] node [above right=\markMoonAbove{} and \markMoonRight{} of cal05-\theCalendarYear-05-04.north east] {*};
+\draw[gold] node [above right=\markMoonAbove{} and \markMoonRight{} of cal05-\dateVisakhaPuja.north east] {*};
 }
 
 \SetCalendarMarks{6}{%
@@ -25,12 +25,12 @@
 
 \SetCalendarMarks{7}{%
 % Asalha Puja
-\draw[gold] node [above right=\markMoonAbove{} and \markMoonRight{} of cal07-\theCalendarYear-07-02.north east] {*};
-% Vassa begins
+\draw[gold] node [above right=\markMoonAbove{} and \markMoonRight{} of cal07-\dateAsalhaPuja.north east] {*};
+% First day of Vassa
 \node[kite, draw, textbody, fill=textbody,
     scale=0.2,
     kite vertex angles=60,
-    above right=\markKiteAbove{} and \markKiteRight{} of cal07-\theCalendarYear-07-03.north east] {};
+    above right=\markKiteAbove{} and \markKiteRight{} of cal07-\dateVassaFirstDay.north east] {};
 }
 
 \SetCalendarMarks{8}{}
@@ -39,7 +39,12 @@
 
 \SetCalendarMarks{10}{%
 % Pavarana day
-\draw[gold] node [above right=\markMoonAbove{} and \markMoonRight{} of cal10-\theCalendarYear-10-08.north east] {*};
+\draw[gold] node [above right=\markMoonAbove{} and \markMoonRight{} of cal10-\datePavarana.north east] {*};
+% Last day of Vassa
+\node[kite, draw, textbody, fill=textbody,
+    scale=0.2,
+    kite vertex angles=60,
+    above right=\markKiteAboveSecond{} and \markKiteRightSecond{} of cal010-\dateVassaLastDay.north east] {};
 }
 
 \SetCalendarMarks{11}{}

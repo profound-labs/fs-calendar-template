@@ -1,5 +1,7 @@
 \documentclass[
   language=english,
+  year=2016,
+  altYear=2559,
   11pt,
   paperheight=250.5mm,
   paperwidth=170.5mm,
@@ -7,8 +9,6 @@
   photoHeight=100mm,
   calendarHeight=80mm,
   calendarY=25mm,
-  year=2016,
-  altYear=2559,
   hmargin=17mm,
   calendarStyle=betelgeuse,
   mainFontFamily=Shaker Pali Regular,
@@ -21,8 +21,10 @@
 \makeatletter
 
 %\newcommand\photosDir{./src-images/300dpi/}
-%\newcommand\photosDir{./src-images/92dpi/}
-\newcommand\photosDir{./src-images/30dpi/}
+%\newcommand\thumbsDir{./src-images/thumbs-300dpi/}
+
+\newcommand\photosDir{./src-images/92dpi/}
+\newcommand\thumbsDir{./src-images/thumbs-360px/}
 
 \usepackage{calendar-layout}
 
@@ -34,7 +36,7 @@
 
 \mbox{}
 
-\coverPage
+\coverPageWall
 
 % === Frontmatter =====================================================
 
@@ -81,7 +83,7 @@
 \ifvarnishmask
 \mbox{}
 \else
-\input{./addresses.tex}
+\input{./wall_addresses.tex}
 \fi
 
 \end{document}
