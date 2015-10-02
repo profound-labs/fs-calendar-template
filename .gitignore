@@ -1,6 +1,8 @@
-pdf-keep/
-address-page.pdf
-frontmatter-page.pdf
+# TODO: Uncomment when starting production.
+#src-images/
+#pdf-keep/
+
+data/*.bak*
 planner-page.pdf
 thumbs-page.pdf
 wall_main.pdf

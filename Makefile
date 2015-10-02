@@ -37,11 +37,13 @@ planner-insert-desk:
 planner-a4:
 	$(LATEX) $(LATEX_OPTS) planner_main_a4.tex
 
-planner-a3:
-	$(LATEX) $(LATEX_OPTS) planner_main_a3.tex
+get-moondays:
+	cp --backup=numbered ./data/moondays.csv ./data/moondays.csv.bak
+	go run ./scripts/get-moondays.go > ./data/moondays.csv
 
-planner-a2:
-	$(LATEX) $(LATEX_OPTS) planner_main_a2.tex
+get-astromoondays:
+	cp --backup=numbered ./data/astromoondays.csv ./data/astromoondays.csv.bak
+	go run ./scripts/get-astromoondays.go > ./data/astromoondays.csv
 
 clean:
 	+rm -fv *.{dvi,ps,aux,log,bbl,blg}

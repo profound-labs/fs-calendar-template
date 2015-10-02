@@ -11,6 +11,9 @@
 %% ====================
 
 \renewcommand\PostLayoutSettings{%
+}% \PostLayoutSettings
+
+\renewcommand\TextKeys{%
 
 \renewcommand\calendarTitleText{Forest Sangha Calendar}
 
@@ -18,9 +21,14 @@
 \renewcommand\westernDisciplesOfAjahnChah{Western disciples of Ajahn Chah}
 \renewcommand\portalPageWorldWide{The portal page for this community worldwide is:}
 
-\renewcommand\noteTextAjChahMemorialDay{Ajahn Chah Memorial Day}
-\renewcommand\noteTextAjChahBirthDay{Ajahn Chah's Birthday}
-\renewcommand\noteTextVassaBegins{Vassa begins}
+\renewcommand\textAjahnChahMemorialDay{Ajahn Chah Memorial Day}
+\renewcommand\textAjahnChahBirthDay{Ajahn Chah's Birthday}
+
+\renewcommand\textVassaBegins{Vassa begins}
+
+%\renewcommand\textFirstDayOfVassa{First Day of Vassa}
+\renewcommand\textFirstDayOfVassa{\textVassaBegins}
+\renewcommand\textLastDayOfVassa{Last Day of Vassa}
 
 \renewcommand\textMaghaPuja{Māgha Pūjā}
 \renewcommand\textVesakhaPuja{Vesākha Pūjā}
@@ -36,7 +44,7 @@
 \renewcommand\textItaly{Italy}
 \renewcommand\textCanada{Canada}
 
-}% \PostLayoutSettings
+}
 
 %% ===========
 %% Frontmatter
@@ -97,22 +105,18 @@ and are not always on the same day as the astronomical occurrences.
 
 {\large THE MAJOR FULL MOON DAYS FOR \theCalendarYear\ / \theCalendarAltYear}
 
-% TODO: Add date
-\emph{Māgha Pūjā} \spacedcdot\ XX February (`Sangha Day')\\
+\emph{Māgha Pūjā} \spacedcdot\ \dateTextFullMaghaPuja\ (`Sangha Day')\\
 Commemorates the spontaneous gathering of 1250 arahants to whom\\
 the Buddha gave an exhortation on the basis of the Discipline (\emph{Ovāda Pāṭimokkha}).
 
-% TODO: Add date
-\emph{Vesākha Pūjā} \spacedcdot\ XX May (`Buddha Day')\\
+\emph{Vesākha Pūjā} \spacedcdot\ \dateTextFullVesakhaPuja\ (`Buddha Day')\\
 Commemorates the birth, enlightenment and passing away of the Buddha.
 
-% TODO: Add date
-\emph{Āsāḷhā Pūjā} \spacedcdot\ XX July (`Dhamma Day')\\
+\emph{Āsāḷhā Pūjā} \spacedcdot\ \dateTextFullAsalhaPuja\ (`Dhamma Day')\\
 Commemorates the Buddha's first discourse, given to the five \emph{samaṇas} in the Deer Park at\\
 Sarnath, near Varanasi. The traditional Rainy-Season Retreat (\emph{Vassa}) begins on the next day.
 
-% TODO: Add date
-\emph{Pavāraṇā Day} \spacedcdot\ XX October\\
+\emph{Pavāraṇā Day} \spacedcdot\ \dateTextFullPavarana\\
 This marks the end of the three-month \emph{Vassa} retreat. During the following month,\\
 lay people may offer the \emph{Kaṭhina} robe as part of a general alms-giving ceremony.
 
@@ -121,11 +125,10 @@ lay people may offer the \emph{Kaṭhina} robe as part of a general alms-giving 
 www.forestsangha.org\\
 www.forestsanghapublications.org
 
-% TODO: Copyright date is \theCalendarYear - 1
 Calendar production by Aruno Publications,\\
 Aruna Ratanagiri Buddhist Monastery, UK
 
-\copyright\ Aruno Publications \the\year\\
+\copyright\ Aruno Publications \theCopyrightYear\\
 www.ratanagiri.org.uk
 
 \vspace{0.9\baselineskip}

@@ -1,12 +1,22 @@
 \ProvidesPackage{layout_planner}
 
 \usepackage{nag}
-
 \usepackage{soul}
 \usepackage{textcomp}
 \usepackage[cmyk]{xcolor}
-
 \usepackage{eso-pic}
+\usepackage{calc}
+
+\usepackage{geometry}
+\geometry{
+  paper=a4paper,
+  landscape,
+  vmargin=7mm,
+  hmargin=7mm,
+}
+\setstocksize{210mm}{297mm}
+
+\setlength{\parindent}{0pt}
 
 \usepackage{fontspec}
 \setmainfont[
@@ -55,6 +65,38 @@
 
 \usepackage{wasysym}
 
+\newcommand\theCalendarYear{}
+\newcommand\theCalendarAltYear{}
+
+\newcommand\PreLayoutSettings{}
+\newcommand\PostLayoutSettings{}
+\newcommand\TextKeys{}
+\newcommand\FrontMatterText{}
+\newcommand\SetAllQuotes{}
+\newcommand\SetAllPhotoCaptions{}
+
+\newcommand\calendarTitleText{}
+\newcommand\branchMonasteries{}
+\newcommand\westernDisciplesOfAjahnChah{}
+\newcommand\portalPageWorldWide{}
+\newcommand\textAjahnChahMemorialDay{}
+\newcommand\textAjahnChahBirthDay{}
+\newcommand\textVassaBegins{}
+\newcommand\textFirstDayOfVassa{}
+\newcommand\textLastDayOfVassa{}
+\newcommand\textMaghaPuja{}
+\newcommand\textVesakhaPuja{}
+\newcommand\textAsalhaPuja{}
+\newcommand\textPavarana{}
+\newcommand\textUnitedKingdom{}
+\newcommand\textSwitzerland{}
+\newcommand\textThailand{}
+\newcommand\textAustralia{}
+\newcommand\textNewZealand{}
+\newcommand\textUnitedStates{}
+\newcommand\textItaly{}
+\newcommand\textCanada{}
+
 \newcommand*\moonsize{\@setfontsize\moonsize{14}{14}}
 \newcommand*\astromoonsize{\@setfontsize\astromoonsize{5}{5}}
 
@@ -62,128 +104,15 @@
 \newcommand*\astromoonformat[1]{{\color{gold}\astromoonsize #1}}
 \newcommand*\astromoonformatlight[1]{{\color{gold!60}\astromoonsize #1}}
 
-\newcommand{\MyMoon}[1]{%
-\ifthenelse{#1=1}{\moonformat{\CIRCLE}}{}% new
-\ifthenelse{#1=2}{\moonformat{\LEFTcircle}}{}% waxing
-\ifthenelse{#1=3}{\moonformat{\Circle}}{}% full
-\ifthenelse{#1=4}{\moonformat{\RIGHTcircle}}{}% waning
-}
+\newcommand{\NewMoon}{\moonformat{\CIRCLE}}
+\newcommand{\WaxingMoon}{\moonformat{\LEFTcircle}}
+\newcommand{\FullMoon}{\moonformat{\Circle}}
+\newcommand{\WaningMoon}{\moonformat{\RIGHTcircle}}
 
-\newcommand{\MyAstroMoon}[1]{%
-\ifthenelse{#1=1}{\astromoonformatlight{\CIRCLE}}{}% new
-\ifthenelse{#1=2}{\astromoonformatlight{\LEFTcircle}}{}% waxing
-\ifthenelse{#1=3}{\astromoonformat{\Circle}}{}% full
-\ifthenelse{#1=4}{\astromoonformatlight{\RIGHTcircle}}{}% waning
-}
-
-\newcommand{\moondays}{%
-if (equals=2016-01-02) [day text=\MyMoon{4}]%
-if (equals=2016-01-08) [day text=\MyMoon{1}]%
-if (equals=2016-01-16) [day text=\MyMoon{2}]%
-if (equals=2016-01-23) [day text=\MyMoon{3}]%
-if (equals=2016-01-31) [day text=\MyMoon{4}]%
-if (equals=2016-02-07) [day text=\MyMoon{1}]%
-if (equals=2016-02-15) [day text=\MyMoon{2}]%
-if (equals=2016-02-22) [day text=\MyMoon{3}]% % magha
-if (equals=2016-03-01) [day text=\MyMoon{4}]%
-if (equals=2016-03-07) [day text=\MyMoon{1}]%
-if (equals=2016-03-15) [day text=\MyMoon{2}]%
-if (equals=2016-03-22) [day text=\MyMoon{3}]%
-if (equals=2016-03-30) [day text=\MyMoon{4}]%
-if (equals=2016-04-06) [day text=\MyMoon{1}]%
-if (equals=2016-04-14) [day text=\MyMoon{2}]%
-if (equals=2016-04-21) [day text=\MyMoon{3}]%
-if (equals=2016-04-29) [day text=\MyMoon{4}]%
-if (equals=2016-05-05) [day text=\MyMoon{1}]%
-if (equals=2016-05-13) [day text=\MyMoon{2}]%
-if (equals=2016-05-20) [day text=\MyMoon{3}]% % visakha
-if (equals=2016-05-28) [day text=\MyMoon{4}]%
-if (equals=2016-06-04) [day text=\MyMoon{1}]%
-if (equals=2016-06-12) [day text=\MyMoon{2}]%
-if (equals=2016-06-19) [day text=\MyMoon{3}]%
-if (equals=2016-06-27) [day text=\MyMoon{4}]%
-if (equals=2016-07-04) [day text=\MyMoon{1}]%
-if (equals=2016-07-12) [day text=\MyMoon{2}]%
-if (equals=2016-07-19) [day text=\MyMoon{3}]% % asalha
-if (equals=2016-07-27) [day text=\MyMoon{4}]%
-if (equals=2016-08-03) [day text=\MyMoon{1}]%
-if (equals=2016-08-11) [day text=\MyMoon{2}]%
-if (equals=2016-08-18) [day text=\MyMoon{3}]%
-if (equals=2016-08-26) [day text=\MyMoon{4}]%
-if (equals=2016-09-01) [day text=\MyMoon{1}]%
-if (equals=2016-09-09) [day text=\MyMoon{2}]%
-if (equals=2016-09-16) [day text=\MyMoon{3}]%
-if (equals=2016-09-24) [day text=\MyMoon{4}]%
-if (equals=2016-10-01) [day text=\MyMoon{1}]%
-if (equals=2016-10-09) [day text=\MyMoon{2}]%
-if (equals=2016-10-16) [day text=\MyMoon{3}]% % assayuja
-if (equals=2016-10-24) [day text=\MyMoon{4}]%
-if (equals=2016-10-30) [day text=\MyMoon{1}]%
-if (equals=2016-11-07) [day text=\MyMoon{2}]%
-if (equals=2016-11-14) [day text=\MyMoon{3}]%
-if (equals=2016-11-22) [day text=\MyMoon{4}]%
-if (equals=2016-11-29) [day text=\MyMoon{1}]%
-if (equals=2016-12-07) [day text=\MyMoon{2}]%
-if (equals=2016-12-14) [day text=\MyMoon{3}]%
-if (equals=2016-12-22) [day text=\MyMoon{4}]%
-if (equals=2016-12-28) [day text=\MyMoon{1}]%
-}
-
-% http://eclipse.gsfc.nasa.gov/phase/phase2001gmt.html
-\newcommand{\astromoondays}{
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-01-02.south east] {\MyAstroMoon{4}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-01-10.south east] {\MyAstroMoon{1}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-01-16.south east] {\MyAstroMoon{2}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-01-24.south east] {\MyAstroMoon{3}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-02-01.south east] {\MyAstroMoon{4}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-02-08.south east] {\MyAstroMoon{1}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-02-15.south east] {\MyAstroMoon{2}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-02-22.south east] {\MyAstroMoon{3}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-03-01.south east] {\MyAstroMoon{4}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-03-09.south east] {\MyAstroMoon{1}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-03-15.south east] {\MyAstroMoon{2}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-03-23.south east] {\MyAstroMoon{3}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-03-31.south east] {\MyAstroMoon{4}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-04-07.south east] {\MyAstroMoon{1}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-04-14.south east] {\MyAstroMoon{2}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-04-22.south east] {\MyAstroMoon{3}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-04-30.south east] {\MyAstroMoon{4}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-05-06.south east] {\MyAstroMoon{1}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-05-13.south east] {\MyAstroMoon{2}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-05-21.south east] {\MyAstroMoon{3}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-05-29.south east] {\MyAstroMoon{4}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-06-05.south east] {\MyAstroMoon{1}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-06-12.south east] {\MyAstroMoon{2}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-06-20.south east] {\MyAstroMoon{3}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-06-27.south east] {\MyAstroMoon{4}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-07-04.south east] {\MyAstroMoon{1}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-07-12.south east] {\MyAstroMoon{2}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-07-19.south east] {\MyAstroMoon{3}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-07-26.south east] {\MyAstroMoon{4}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-08-02.south east] {\MyAstroMoon{1}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-08-10.south east] {\MyAstroMoon{2}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-08-18.south east] {\MyAstroMoon{3}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-08-25.south east] {\MyAstroMoon{4}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-09-01.south east] {\MyAstroMoon{1}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-09-09.south east] {\MyAstroMoon{2}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-09-16.south east] {\MyAstroMoon{3}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-09-23.south east] {\MyAstroMoon{4}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-10-01.south east] {\MyAstroMoon{1}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-10-09.south east] {\MyAstroMoon{2}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-10-16.south east] {\MyAstroMoon{3}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-10-22.south east] {\MyAstroMoon{4}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-10-30.south east] {\MyAstroMoon{1}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-11-07.south east] {\MyAstroMoon{2}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-11-14.south east] {\MyAstroMoon{3}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-11-21.south east] {\MyAstroMoon{4}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-11-29.south east] {\MyAstroMoon{1}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-12-07.south east] {\MyAstroMoon{2}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-12-14.south east] {\MyAstroMoon{3}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-12-21.south east] {\MyAstroMoon{4}};
-\draw[gold] node [below right=-3mm and -1.5mm of cal-2016-12-29.south east] {\MyAstroMoon{1}};
-}
-
-%\newcommand*{\customdays}{\moondays}
+\newcommand{\NewAstroMoon}{\astromoonformatlight{\CIRCLE}}
+\newcommand{\WaxingAstroMoon}{\astromoonformatlight{\LEFTcircle}}
+\newcommand{\FullAstroMoon}{\astromoonformat{\Circle}}
+\newcommand{\WaningAstroMoon}{\astromoonformatlight{\RIGHTcircle}}
 
 \newcommand*{\s}[1]{\textsuperscript{#1}}
 
@@ -208,13 +137,15 @@ if (equals=2016-12-28) [day text=\MyMoon{1}]%
   month label left,
   execute at begin day scope={
     \ifdate{weekend}{\color{black!60}}{}
-    % TODO: Vassa dates
-    \ifdate{between=07-19 and 10-16}{\color{gold}}{}
+    % Vassa
+    \ifdate{between=\dateFirstDayOfVassa\ and \dateLastDayOfVassa}{\color{gold}}{}
+    % Weekday headers in January
     \ifdate{between=01-01 and 01-31}{
       \def\l{\ifcase\pgfcalendarcurrentweekday M\or T\or W\or T\or F\or S\or S\fi}%
       \ifdate{weekend}{\def\daylabelcolor{gold}}{\def\daylabelcolor{black}}%
       \node[anchor=south,yshift=5mm,inner sep=0pt]{\color{\daylabelcolor}\datedayFormat{\l}};%
     }{}
+    % Weekday headers in December
     \ifdate{between=12-01 and 12-31}{
       \pgftransformyshift{-3mm}%
       \def\l{\ifcase\pgfcalendarcurrentweekday M\or T\or W\or T\or F\or S\or S\fi}%
@@ -224,32 +155,46 @@ if (equals=2016-12-28) [day text=\MyMoon{1}]%
   }
 ]
 
-\tikzstyle{a3}=[
-  day xshift=9.6mm,
-  month yshift=19.9mm,
-]
+\newcommand*\moonLegendKey[2]{%
+\AddToShipoutPictureFG*{\put(\LenToUnit{#1},\LenToUnit{#2})%
+{\begin{minipage}[b]{60mm}%
+\begin{tikzpicture}%
+\calendar (keycal) [dates=2014-07-04 to 2014-07-05, planner] if (equals=2014-07-04) [day text=\WaxingMoon];
+\draw [gold] node (astro) [below right=-3mm and -1.5mm of keycal-2014-07-05.south east] {\WaxingAstroMoon};
+\draw [textbody] node (event) [above right=-3mm and -1.5mm of keycal-2014-07-04.north east] {\datefnsize 3};
+\node (daynote) [black, left=5mm of keycal-2014-07-04.west] {\bottomlabelsize moon day, traditional};
+\node (astronote) [black, below left=1mm and 0mm of astro.south west] {\bottomlabelsize moon phase, astronomical};
+\node (eventnote) [black, above right=0mm and 0mm of event.north east] {\bottomlabelsize event note};
+\draw [black!50] (astronote) -- (astro);
+\draw [black!50] (daynote) -- (keycal-2014-07-04.west);
+\draw [black!50] (eventnote) -- (event);
+\end{tikzpicture}%
 
-\tikzstyle{a2}=[
-  day xshift=13.86mm,
-  month yshift=28mm,
-  execute at begin day scope={
-    \ifdate{between=06-01 and 06-30}{
-      \pgftransformyshift{-3mm}%
-      \def\l{\ifcase\pgfcalendarcurrentweekday M\or T\or W\or T\or F\or S\or S\fi}%
-      \ifdate{weekend}{\def\daylabelcolor{gold}}{\def\daylabelcolor{black}}%
-      \node[anchor=south,yshift=5mm,inner sep=0pt]{\color{\daylabelcolor}\datedayFormat{\l}};%
-    }{}
-    \ifdate{between=07-01 and 07-31}{
-      \def\l{\ifcase\pgfcalendarcurrentweekday M\or T\or W\or T\or F\or S\or S\fi}%
-      \ifdate{weekend}{\def\daylabelcolor{gold}}{\def\daylabelcolor{black}}%
-      \node[anchor=south,yshift=5mm,inner sep=0pt]{\color{\daylabelcolor}\datedayFormat{\l}};%
-    }{}
-  }
-]
+{\bottomlabelsize Download from {\color{gold}\underline{\textcolor[gray]{0.3}{www.forestsangha.org/calendar}}}}
+
+\end{minipage}%
+}}%
+}
+
+\newcommand\previewWatermark{%
+\AddToShipoutPictureBG*{\put(0,0)%
+{\begin{minipage}[b][\paperheight][c]{\paperwidth}%
+\centering
+\rotatebox{-45}{\resizebox{15cm}{!}{\color[gray]{0.9} PREVIEW}}
+\par
+\end{minipage}%
+}}%
+}
 
 \usepackage[perpage,multiple,stable]{footmisc}
 
 \usepackage[final]{microtype}
 
 \pagestyle{empty}
+
+\input{./english-text.tex}
+\TextKeys
+
+\usepackage{luacode}
+\directlua{dofile("./scripts/planner-preamble.lua")}
 
