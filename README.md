@@ -19,3 +19,45 @@ git add -A .
 
 git commit -am "kickstart"
 ```
+
+## Add the photos
+
+First, unlock `src-images/jpg` to allow changing the files:
+
+    git annex unlock src-images/jpg
+
+Copy the new photos to `src-images/jpg`. Delete the placeholder small .jpg
+files, rename the new image files to month names.
+
+```
+git annex add src-images/jpg
+git commit -m "added photos"
+```
+
+Now git-annex locked and symlinked them.
+
+## Convert the photos
+
+```
+git annex unlock src-images
+cd src-images
+./convert-jpg.sh
+```
+
+Run `make wall` to compile the wall PDF and see if the images work.
+
+Crop the thumbs, use square sizes:
+
+    cp jpg/*.jpg jpg-thumbs-crops
+    gimp jpg-thumbs-crops/January.jpg
+    ...
+    ./convert-thumbs.sh
+
+Run `make wall-and-desk` to and see if the thumbs work.
+
+Add and commit the changes:
+
+```
+git annex add src-images
+git commit -m "cropped and coverted thumbs"
+```
