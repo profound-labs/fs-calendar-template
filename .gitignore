@@ -1,7 +1,3 @@
-# TODO: Uncomment when starting production.
-#src-images/
-#pdf-keep/
-
 data/*.bak*
 planner-page.pdf
 thumbs-page.pdf
