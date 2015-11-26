@@ -10,7 +10,7 @@ for i in ./jpg/*.jpg; do
   name=`basename -s .jpg $i`
   ../scripts/img2pdf.py --output pdf/"$name".pdf "$i" && \
   cp pdf/"$name".pdf 300dpi/ && \
-  convert "$i" -compress jpeg -quality 90 -resample 92 92dpi/"$name".pdf && \
+  convert "$i" -compress jpeg -quality 90 -density 300 -resample 92 92dpi/"$name".pdf && \
   if [ "$?" != "0" ]; then
     echo "ERROR"
     exit 2
