@@ -20,6 +20,21 @@ git add -A .
 git commit -am "kickstart"
 ```
 
+## Config and Moonday data
+
+Edit `data/config.csv`.
+
+Generate the uposatha and astro moondays:
+
+    make get-moondays
+    make get-astromoondays
+
+## Year planner
+
+At this point the year planner should alread work:
+
+    make planner-a4
+
 ## Add the photos
 
 First, unlock `src-images/jpg` to allow changing the files:
@@ -61,3 +76,31 @@ Add and commit the changes:
 git annex add src-images
 git commit -m "cropped and coverted thumbs"
 ```
+
+# Add the quotes
+
+Add the quotes in `english-text.tex`.
+
+# Cover art
+
+Copy `\coverPageWall` and `\coverPageDesk` from `calendar-layout.sty`, and renew
+in `english-text.tex` at `\PreLayoutSettings`.
+
+# Send preview PDFs for checking
+
+# Prepare the text for the translators
+
+Use docx. More than one file of the same thing is confusing. LibreOffice will
+open .docx too, but Office won't do with .odt.
+
+Copy the English-YYYY.docx from last year to doc/ and copy in the new text.
+
+# Preflight checklist
+
+# Wrapping up
+
+Copy and commit wallcalendar.cls
+
+# Any Other Business?
+
+    pt -e 'TODO|FIXME'
